@@ -1,0 +1,200 @@
+# Nmap Practical Lab – Commands, Steps, Observations & Results
+
+=====================================================================
+1. Command: nmap -sn 10.0.2.15/24
+=====================================================================
+
+Step:
+- I performed a host discovery scan on the 10.0.2.15/24 network.
+
+Purpose:
+- Checks which machines are online.
+- Does not scan ports (Ping Scan).
+
+Observation:
+- Nmap returned several active hosts.
+- No port details were shown.
+
+Results:
+- A list of live hosts:
+  Example Output:
+    Nmap scan report for 10.0.2.2
+    Host is up.
+    Nmap scan report for 10.0.2.3
+    Host is up.
+    Nmap scan report for 10.0.2.15
+    Host is up.
+
+Screenshot Reference:
+- /nmap-labs/screenshots/01-host-discovery.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+2. Command: nmap 10.0.2.2
+=====================================================================
+
+Step:
+- Scanned a single machine using Nmap default scan.
+
+Purpose:
+- Performs a SYN scan (if privileged).
+- Shows open ports and basic service guesses.
+
+Observation:
+- Returned standard ports such as TCP (445) and  TCP (135) depending on VM setup.
+
+Result:
+  Example Output:
+    PORT     STATE SERVICE
+    135/tcp   open  msrpc
+    445/tcp   open  microsoft-ds
+    3306/tcp  open  mysql
+    3389/tcp  open ms-wbt-server
+
+Screenshot Reference:
+- /nmap-labs/screenshots/02-basic-scan.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+3. Command: sudo nmap -O 10.0.2.2
+=====================================================================
+
+Step:
+- Enabled OS detection (-O) and scanned target.
+
+Purpose:
+- Identifies operating system using TCP/IP fingerprinting.
+
+Observation:
+- OS accuracy varies; Nmap tries multiple signatures.
+
+Result:
+  Example Output:
+    No exact OS matches for host (test conditions non-ideal)
+    Network Distance: 1 hop
+
+Screenshot Reference:
+- /nmap-labs/screenshots/03-os-detection.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+4. Command: nmap -v -p21 -sV -T4 10.0.2.2
+=====================================================================
+
+Step:
+- Ran a verbose service version scan against port 21 (FTP).
+
+Purpose:
+- Detects the service and version running on port 21.
+- -T4 increases speed.
+- -sV reveals service versions.
+
+Observation:
+- The FTP port is being filtered by a firewall.
+
+Result:
+  Example Output:
+    PORT   STATE     SERVICE VERSION
+    21/tcp filtered  ftp     
+
+Screenshot Reference:
+- /nmap-labs/screenshots/04-service-detection.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+5. Command: nmap -p21 -sV -A 10.0.2.2
+=====================================================================
+
+Step:
+- Used aggressive mode plus version detection.
+
+Purpose:
+- Enables OS detection, scripts, and traceroute.
+
+Observation:
+- More detailed results including OS or script output.
+
+Result:
+  Example Output:
+    PORT   STATE     SERVICE VERSION
+    21/tcp filtered  ftp     
+    
+    TRACEROUTE
+    HOP RTT     ADDRESS
+    1   0.88 ms 10.0.2.2
+
+Screenshot Reference:
+- /nmap-labs/screenshots/05-aggressive-scan.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+6. Command: nmap -A -p135,445 10.0.2.2
+=====================================================================
+
+Step:
+- Scanned SMB (Server Message Block) ports with aggressive mode.
+
+Purpose:
+- Collects detailed SMB information.
+- Useful for Windows/SMB enumeration.
+
+Observation:
+- Showed Microsoft Windows RPC details depending on host configuration and host script results.
+
+Result:
+  Example Output:
+    PORT    STATE SERVICE       VERSION
+    135/tcp open  msrpc         Microsoft Windows RPC
+    445/tcp open  microsoft-ds?
+    Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Screenshot Reference:
+- /nmap-labs/screenshots/06-smb-scan.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+7. Command: nmap --script smb-enum-users.nse -p139,445 10.0.2.2
+=====================================================================
+
+Step:
+- Enumerated SMB users using Nmap scripting engine.
+
+Purpose:
+- Attempts to list SMB users on the remote machine.
+
+Observation:
+- No SMB usernames were uncovered on the target host.
+
+Screenshot Reference:
+- /nmap-labs/screenshots/07-smb-users.png
+
+---------------------------------------------------------------------
+
+=====================================================================
+8. Command: nmap --script smb-enum-shares.nse -p445 10.0.2.2
+=====================================================================
+
+Step:
+- Used SMB script to list shared folders.
+
+Purpose:
+- Helps identify accessible shared directories.
+
+Observation:
+- Returned no network shares within the target host.
+
+Screenshot Reference:
+- /nmap-labs/screenshots/08-smb-shares.png
+
+---------------------------------------------------------------------
+
+# End of Nmap Labs Documentation
+
+
+

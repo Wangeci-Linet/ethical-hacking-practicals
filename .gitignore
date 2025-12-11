@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Linux
+*~
+*.swp
+*.bak
+
+# VS Code
+.vscode/
+
+# Network/Packet Capture
+*.pcap
+*.pcapng
+
+# Misc
+.DS_Store
