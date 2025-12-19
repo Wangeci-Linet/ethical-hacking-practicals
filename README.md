@@ -1,7 +1,7 @@
 # Ethical Hacking Practicals
 
 This repository contains practical lab exercises from the Cisco Ethical Hacking course.  
-It is designed to document my work, observations, and results from hands-on exercises in network scanning and packet analysis.
+It is designed to document my work, observations, and results from hands-on exercises in network scanning and packet analysis to website cloning and password policy enumeration.
 
 ## Repository Structure
 
@@ -17,6 +17,19 @@ It is designed to document my work, observations, and results from hands-on exer
   - Packet crafting
   - Packet sniffing
   - Basic protocol analysis
+- Reproduce Website Cloning Labs:
+  - Target website analysis
+  - Website cloning
+  - Verification of cloned website
+  - Local hosting and testing
+- Reproduce SMB Vulnerability Scanning labs:
+  - Network host discovery
+  - SMB port scanning
+  - SMB service enumeration
+  - SMB user enumeration
+  - SMB password policy enumeration
+  - SMB share enumeration
+  - File upload via SMB
 - Document steps, observations, and expected results clearly
 
 ## Usage
