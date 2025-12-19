@@ -33,7 +33,7 @@ Results:
 Active hosts on the 10.0.2.15/24 network were identified.
 
 Screenshot Reference:
-cmd2_nmap_null_scan.png
+01-nmap-host-scan.png
 
 --------------------------------------------------
 Step 3: User Account Enumeration
@@ -51,7 +51,7 @@ Results:
 Valid SMB user accounts were successfully enumerated.
 
 Screenshot Reference:
-cmd3_enum4linux_users.png
+02-enum4linux-users.png
 
 --------------------------------------------------
 Step 4: Identify SMB Services
@@ -69,7 +69,7 @@ Results:
 SMB service information and OS details were successfully obtained.
 
 Screenshot Reference:
-cmd4_enum4linux_services.png
+03-enum4linux-services.png
 
 --------------------------------------------------
 Step 5: Password Policy Retrieval
@@ -87,7 +87,7 @@ Results:
 Password policy information was successfully enumerated.
 
 Screenshot Reference:
-cmd5_enum4linux_password_policy.png
+04-enum4linux-password-policy.png
 
 --------------------------------------------------
 Step 6: Full SMB Enumeration 
@@ -105,7 +105,7 @@ Results:
 Comprehensive SMB information about the target system was gathered.
 
 Screenshot Reference:
-cmd6_enum4linux_full_enum.png
+05-enum4linux-full-enum.png
 
 --------------------------------------------------
 Step 7: Testing File Upload Capabilities 
@@ -123,9 +123,6 @@ The file badfile.txt was created successfully in the current directory.
 Results:
 A test file containing sample text was created.
 
-Screenshot Reference:
-cmd7_create_badfile.png
-
 --------------------------------------------------
 Step 8: SMB Shares
 --------------------------------------------------
@@ -139,5 +136,5 @@ smbclient -L //10.0.2.3/
 - Results: Accessible SMB shares on the target system were identified.
 
 Screenshot Reference:
-- cmd8_smb_shares_list.png
+06-smb-shares-list.png
 
