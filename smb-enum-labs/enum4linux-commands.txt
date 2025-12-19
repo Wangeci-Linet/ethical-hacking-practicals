@@ -1,0 +1,143 @@
+
+Lab: Scanning for SMB Vulnerabilities
+Course: Cisco Ethical Hacker
+
+--------------------------------------------------
+Step 1: Root Access
+--------------------------------------------------
+Command:
+sudo su
+
+Purpose:
+To switch to the root user in order to execute privileged network scanning and enumeration commands.
+
+Observations:
+The terminal prompt changed from a normal user to root, indicating elevated privileges.
+
+Results:
+Root access was successfully obtained.
+
+--------------------------------------------------
+Step 2: Identify Live Hosts
+--------------------------------------------------
+Command:
+nmap -sN 10.0.2.15/24
+
+Purpose:
+To perform a TCP Null scan on the target network to identify live hosts and potential open or filtered ports.
+
+Observations:
+The scan returned responses from multiple hosts within the subnet.
+
+Results:
+Active hosts on the 10.0.2.15/24 network were identified.
+
+Screenshot Reference:
+cmd2_nmap_null_scan.png
+
+--------------------------------------------------
+Step 3: User Account Enumeration
+--------------------------------------------------
+Command:
+enum4linux -U 10.0.2.2
+
+Purpose:
+To enumerate user accounts available on the target system via the SMB service.
+
+Observations:
+Several user accounts were displayed in the output.
+
+Results:
+Valid SMB user accounts were successfully enumerated.
+
+Screenshot Reference:
+cmd3_enum4linux_users.png
+
+--------------------------------------------------
+Step 4: Identify SMB Services
+--------------------------------------------------
+Command:
+enum4linux -Sv 10.0.2.2
+
+Purpose:
+To identify SMB services and retrieve version and operating system information from the target.
+
+Observations:
+The output revealed the SMB version and operating system details.
+
+Results:
+SMB service information and OS details were successfully obtained.
+
+Screenshot Reference:
+cmd4_enum4linux_services.png
+
+--------------------------------------------------
+Step 5: Password Policy Retrieval
+--------------------------------------------------
+Command:
+enum4linux -P 10.0.2.2
+
+Purpose:
+To retrieve the password policy configured on the target system.
+
+Observations:
+Password requirements such as minimum length were displayed.
+
+Results:
+Password policy information was successfully enumerated.
+
+Screenshot Reference:
+cmd5_enum4linux_password_policy.png
+
+--------------------------------------------------
+Step 6: Full SMB Enumeration 
+--------------------------------------------------
+Command:
+enum4linux -a 10.0.2.2
+
+Purpose:
+To perform a full SMB enumeration including users, shares, services, and policies.
+
+Observations:
+The output combined information from multiple enumeration techniques.
+
+Results:
+Comprehensive SMB information about the target system was gathered.
+
+Screenshot Reference:
+cmd6_enum4linux_full_enum.png
+
+--------------------------------------------------
+Step 7: Testing File Upload Capabilities 
+--------------------------------------------------
+Command:
+cat >> badfile.txt
+This is a bad file
+
+Purpose:
+To create a text file for testing file upload capabilities on an SMB share.
+
+Observations:
+The file badfile.txt was created successfully in the current directory.
+
+Results:
+A test file containing sample text was created.
+
+Screenshot Reference:
+cmd7_create_badfile.png
+
+--------------------------------------------------
+Step 8: SMB Shares
+--------------------------------------------------
+Command used:
+smbclient -L //10.0.2.3/
+
+- Purpose: To list all available SMB shares on the     target system.
+
+- Observations: Several shared resources were listed in the output.
+
+- Results: Accessible SMB shares on the target system were identified.
+
+Screenshot Reference:
+- cmd8_smb_shares_list.png
+
