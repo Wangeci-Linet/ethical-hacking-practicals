@@ -1,0 +1,123 @@
+Lab Title: Explore the Social Engineering Toolkit (SET)
+Lab Type: Website Cloning (Educational Simulation)
+
+---------------------------------------------------------------------
+Step 1: Gain Root Privileges
+---------------------------------------------------------------------
+
+Command used: sudo -i
+
+- Purpose: Switches the current user to the root user, allowing execution
+  of administrative tools that require elevated privileges.
+- Observation: The terminal prompt changed indicating root access.
+- Result: Root privileges successfully obtained.
+
+----------------------------------------------------------------------
+Step 2: Launch the Social Engineer Toolkit (SET)
+----------------------------------------------------------------------
+
+Command used: setoolkit
+
+- Purpose: Starts the Social Engineer Toolkit (SET), which is used to 
+  simulate social engineering attacks such as phishing and website
+  cloning.
+- Observation: SET main menu displayed multiple attack categories.
+- Results: SET launched successfully.
+
+Screenshot Reference:
+- website-cloning-labs/screenshots/01-set-main-menu.png
+
+----------------------------------------------------------------------
+Step 3: Select Social Engineering Attacks
+----------------------------------------------------------------------
+
+Option 1 selected: Social Engineering Attacks
+
+- Purpose: Opens a menu of social engineering-based attack simulations.
+- Observation: A list of social engineering attack vectors appeared.
+- Result: Social engineering attack menu accessed.
+
+Screenshot Reference:
+- website-cloning-labs/screenshots/02-social-engineering-menu.png
+
+----------------------------------------------------------------------
+Step 4: Select Website Attack Vectors
+----------------------------------------------------------------------
+
+Option Selected: Website Attack Vectors
+
+- Purpose: Allows the simulation of web-based attacks including
+  website cloning and credential harvesting.
+- Observation: Website attack options were displayed.
+- Result: Website attack vector menu accessed.
+
+Screenshot Reference:
+- website-cloning-labs/screenshots/03-website-attack-vectors.png
+
+---------------------------------------------------------------------
+Step 5: Select Credential Harvester Attack Method
+---------------------------------------------------------------------
+
+Option Selected: Credential Harvester Attack Method
+
+- Purpose: Configures SET to capture credentials entered into a cloned
+  website.
+- Observation: SET prompted for further configuration options.
+- Result: Credential harvester mode selected.
+
+Screenshot Reference:
+- website-cloning-labs/screenshots/04-credential-harvester.png
+
+---------------------------------------------------------------------
+Step 6: Select Site Cloner
+---------------------------------------------------------------------
+
+Option Selected: Site Cloner
+
+- Purpose: Clones a target website and hosts it locally to simulate
+  phishing pages.
+- Observation: SET requested the target website URL and local IP 
+  address.
+- Result: Site cloner module activated.
+
+Screenshot Reference:
+- website-cloning-labs/screenshots/05-site-cloner.png
+
+---------------------------------------------------------------------
+Step 7: Enter Target Website
+---------------------------------------------------------------------
+
+Target URL Entered: http://DVWA.vm/
+
+- Purpose: Specifies the website to be cloned. DVWA is a deliberately 
+  vulnerable web application designed for security training.
+- Observation: SET began copying website files and structure.
+- Result: Target website cloning initiated.
+
+Screenshot Refernce:
+- website-cloning-labs/screenshots/05-site-cloner.png
+
+---------------------------------------------------------------------
+Step 8: Enter Local IP Address
+---------------------------------------------------------------------
+
+IP Address Entered: 10.0.2.2
+
+- Purpose: Defines the IP address where the cloned website will be 
+  hosted locally.
+- Observation: SET did not successfully complete the hosting process.
+- Result: The local hosting of the cloned website was not successful.
+
+Screenshot Reference:
+- website-cloning-labs/screenshots/05-site-cloner.png
+
+--------------------------------------------------------------------
+Final Observation and Learning Outcome
+--------------------------------------------------------------------
+This lab demonstrated how attackers can clone legitimate-looking
+websites to harvest user credentials.
+
+Key Takeaways:
+- Website cloning is a common phishing technique.
+- Users should verify URLs and HTTPS certificates.
+- Ethical Hackers use these simulations to improve defense strategies.
